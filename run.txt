@@ -1,0 +1,2 @@
+ sudo docker run --rm -t --net flexnet --ip 172.18.0.2 --name d_pkumar -P pkumar:serf_master --log-driver=syslog –-log-opt syslog-address=udp://192.168.100.69:2524 --cap-add=ALL --privileged
+ sudo docker run --rm -t --net flexnet --name d_pkumar2 -P pkumar:serf_test

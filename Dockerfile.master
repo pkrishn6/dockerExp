@@ -1,0 +1,4 @@
+FROM pkumar:serf_base
+ADD masterd /opt/flexswitch/bin/
+ADD libnanomsg.so.4 /opt/flexswitch/sharedlib/
+ENTRYPOINT ["/opt/flexswitch/bin/masterd"]
