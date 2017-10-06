@@ -1,8 +1,8 @@
 #!/bin/bash
 ./cleanup.sh
-cd $opticd/../mino-masterd/
+cd $mino-masterd/
 make
-cd $opticd/../mino-testd/
+cd $mino-testd/
 make
 cd /home/pkumar/dockerExp/
 cp $out/masterd .
