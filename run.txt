@@ -1,2 +1,5 @@
- sudo docker run --rm -t --net flexnet --ip 172.18.0.2 --name d_pkumar -P pkumar:serf_master --log-driver=syslog –-log-opt syslog-address=udp://192.168.100.69:2524 --cap-add=ALL --privileged
- sudo docker run --rm -t --net flexnet --name d_pkumar2 -P pkumar:serf_test
+ To run master:
+ sudo docker run --rm -t --net flexnet -v /home/pkumar/dockerExp/db/testd.db:/opt/flexswitch/db/testd.db -v /home/pkumar/dockerExp/db/masterd.db:/opt/flexswitch/db/masterd.db --name d_pkumar3 -P pkumar:serf_test
+
+ To run test:
+ sudo docker run --rm -t --net flexnet -v /home/pkumar/dockerExp/db/testd.db:/opt/flexswitch/db/testd.db -v /home/pkumar/dockerExp/db/masterd.db:/opt/flexswitch/db/masterd.db --name d_pkumar3 -P pkumar:serf_test
