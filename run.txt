@@ -1,5 +1,13 @@
+To create a customer docker bridge.
+sudo docker network create --driver=bridge --subnet=172.18.0.0/16 flexnet
+
+Note: This command will fail if executed on 69 server since it already exists in which case, it is safe to proceed to the next command or create your own bridge and use them in the subsequent commands.
+
+Note:
+This is required to assign an IP address to the master docker which in turn is required by SERF to join a cluster.
+
  To run master:
- sudo docker run --rm -t --net flexnet -v /home/pkumar/dockerExp/db/testd.db:/opt/flexswitch/db/testd.db -v /home/pkumar/dockerExp/db/masterd.db:/opt/flexswitch/db/masterd.db --name d_pkumar3 -P pkumar:serf_test
+ sudo docker run --rm -t --net flexnet --ip 172.18.0.2 -v /home/pkumar/dockerExp/db/masterd.db:/opt/flexswitch/db/masterd.db --name d_pkumar -P pkumar:serf_master
 
  To run test:
  sudo docker run --rm -t --net flexnet -v /home/pkumar/dockerExp/db/testd.db:/opt/flexswitch/db/testd.db -v /home/pkumar/dockerExp/db/masterd.db:/opt/flexswitch/db/masterd.db --name d_pkumar3 -P pkumar:serf_test
