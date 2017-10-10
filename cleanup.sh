@@ -1,9 +1,8 @@
 #!/bin/bash
-sudo docker kill d_pkumar
-sudo docker kill d_pkumar2
-sudo docker kill d_pkumar3
-sudo docker rm d_pkumar
-sudo docker rm d_pkumar2
-sudo docker rm d_pkumar3
+for dkr in "$@"
+do
+  sudo docker kill $dkr
+  sudo docker rm $dkr
+done
 sudo docker rmi $USER:serf_master
 sudo docker rmi $USER:serf_test
